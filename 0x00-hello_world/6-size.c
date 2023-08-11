@@ -1,2 +1,22 @@
-#!/bin/bash
-echo -e '#include <stdio.h>\nint main() { printf("Size of char: %zu byte(s)\\n", sizeof(char)); printf("Size of int: %zu byte(s)\\n", sizeof(int)); printf("Size of long: %zu byte(s)\\n", sizeof(long)); printf("Size of long long: %zu byte(s)\\n", sizeof(long long)); printf("Size of float: %zu byte(s)\\n", sizeof(float)); printf("Size of double: %zu byte(s)\\n", sizeof(double)); printf("Size of long double: %zu byte(s)\\n", sizeof(long double)); printf("Size of void*: %zu byte(s)\\n", sizeof(void *)); return 0; }' > output.c && gcc output.c -o output && ./output
+#include <stdio.h>
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	int a;
+	long int b;
+	long long int c;
+	char d;
+	float f;
+
+	printf("Size of a char: %lu byte(s)\n", (unsigned long)sizeof(d));
+	printf("Size of an int: %lu byte(s)\n", (unsigned long)sizeof(a));
+	printf("Size of a long int: %lu byte(s)\n", (unsigned long)sizeof(b));
+	printf("Size of a long long int: %lu byte(s)\n", (unsigned long)sizeof(c));
+	printf("Size of a float: %lu byte(s)\n", (unsigned long)sizeof(f));
+	return (0);
+}

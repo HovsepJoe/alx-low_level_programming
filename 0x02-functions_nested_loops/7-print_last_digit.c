@@ -4,10 +4,14 @@
  * @n: digit to find the last place of.
  * Return: The last digit.
  */
-int print_last_digit(int n)
-{
-	if (n < 0)
-		n = n * -1;
-	_putchar((n % 10) + '0');
-	return (n % 10);
+
+int print_last_digit(int num) {
+    if (num < 0) {
+        num = -num;
+    }
+
+    int last_digit = num % 10;
+    char last_digit_char = '0' + last_digit;
+    write(1, &last_digit_char, 1);
+    return last_digit;
 }

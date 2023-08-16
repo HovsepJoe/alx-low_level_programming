@@ -41,4 +41,16 @@ int add(int num1, int num2);
 
 int _putchar(char c);
 void print_to_98(int n);
+
+int _putchar(char c);
+void print_times_table(int n);
+
+int _putchar(char c);
+int sum_of_multiples(int limit)
+
+int _putchar(char c);
+void print_fibonacci_sequence(int n);
+
+int _putchar(char c);
+int fibonacci_sum_even(int limit);
 #endif /* MAIN_H */

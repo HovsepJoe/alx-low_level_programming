@@ -1,39 +1,24 @@
-#include <stdio.h>
 #include "main.h"
 
-/*
- * Prototype: void print_number(int n);
- * You can only use _putchar function to print
- * You are not allowed to use long
+/**
+ * print_number - prints an integer;
+ * @n: integer to be printed;
  */
+void print_number(int n)
+{
+	unsigned int n1;
 
-int _putchar(char c) {
-    return write(1, &c, 1);
-}
+	if (n < 0)
+	{
+		n1 = -n;
+		_putchar('-');
+	} else
+	{
+		n1 = n;
+	}
 
-void print_number(int n) {
-    if (n < 0) {
-        _putchar('-');
-        n = -n;
-    }
+	if (n1 / 10)
+		print_number(n1 / 10);
 
-    int divisor = 1;
-    while (n / divisor >= 10) {
-        divisor *= 10;
-    }
-
-    while (divisor > 0) {
-        int digit = n / divisor;
-        _putchar(digit + '0');
-        n %= divisor;
-        divisor /= 10;
-    }
-}
-
-int main() {
-    int number = -12345;
-    print_number(number);
-    _putchar('\n');
-
-    return 0;
+	_putchar((n1 % 10) + '0');
 }

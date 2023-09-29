@@ -28,7 +28,7 @@ unsigned int binary_to_uint(const char *b);
 	{
 		if (b[siz] != '0' && b[siz] != '1')
 		{
-			return (o);
+			return (0);
 		}
 
 		if (b[siz] & 1)

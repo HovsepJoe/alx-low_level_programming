@@ -13,27 +13,17 @@
 
 unsigned int binary_to_uint(const char *b);
 {
-        unsigned int h = 0;
-        unsigned int bit_value = 1;
+	unsigned int ans = 0;
 
-        if (b == NULL)
-                return (0);
-        int i = 0;
-        while (b[i] != '\0')
-        {
-                if (b[i] == '0')
-                {
-                        h <<= 1;
-                }
-                else if (b[i] == '1')
-                {
-                        h = (h << 1) | 1;
-                }
-                else
-		{
+	if (b == NULL)
+		return (0);
+
+	for (int i = 0; b[i] != '\0'; i++)
+	{
+		if (b[i] != '0' && b[i] != '1')
 			return (0);
-		}
-		i++;
+		ans = ans * 2 + (b[i] - '0');
 	}
-	return (h);
+
+	return (ans);
 }

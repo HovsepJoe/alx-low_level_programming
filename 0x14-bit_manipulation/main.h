@@ -4,4 +4,4 @@
 int _putchar(char c);
 unsigned int binary_to_uint(const char *b);
 
-#endid /* MAIN_H */
+#endif /* MAIN_H */

@@ -13,29 +13,29 @@
 
 unsigned int binary_to_uint(const char *b);
 {
-	unsigned int ans;
-	int siz, binry;
+	unsigned int ui;
+	int lnt, base_two;
 
 	if (!b)
 		return (0);
 
-	ans = 0;
+	ui = 0;
 
-	for (siz = 0; b[siz] != '\0'; siz++)
+	for (lnt = 0; b[lnt] != '\0'; lnt++)
 		;
 
-	for (siz--, binry = 1; siz >= 0; siz--, binry *= 2)
+	for (lnt--, base_two = 1; lnt >= 0; lnt--, binry *= 2)
 	{
-		if (b[siz] != '0' && b[siz] != '1')
+		if (b[lnt] != '0' && b[lnt] != '1')
 		{
 			return (0);
 		}
 
-		if (b[siz] & 1)
+		if (b[lnt] & 1)
 		{
-			ans += binry;
+			ui += base_two;
 		}
 	}
 
-	return (ans);
+	return (ui);
 }

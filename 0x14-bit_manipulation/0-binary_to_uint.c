@@ -8,31 +8,31 @@
  * where b is pointing to a string of 0 and 1 chars
  * Return: unsigned int
  */
-unsigned int binary_to_uint(const char *b);
+
+unsigned int binary_to_uint(const char *b)
 {
-	unsigned int ans;
-	int siz, binry;
+	unsigned int ui;
+	int len, base_two;
 
 	if (!b)
 		return (0);
 
-	ans = 0;
+	ui = 0;
 
-	for (siz = 0; b[siz] != '\0'; siz++)
+	for (len = 0; b[len] != '\0'; len++)
 		;
 
-	for (siz--, binry = 1; siz >= 0; siz--, binry *= 2)
+	for (len--, base_two = 1; len >= 0; len--, base_two *= 2)
 	{
-		if (b[siz] != '0' && b[siz] != '1')
+		if (b[len] != '0' && b[len] != '1')
 		{
 			return (0);
 		}
 
-		if (b[siz] & 1)
+		if (b[len] & 1)
 		{
-			ans += binry;
+			ui += base_two;
 		}
 	}
-
-	return (ans);
+	return (ui);
 }

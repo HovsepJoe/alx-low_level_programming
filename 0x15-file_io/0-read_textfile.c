@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -5,42 +6,32 @@
  * @filename: file
  * @letters: number of chars
  *
- * Return: returns actual number of letters
+ * Return: returns 1 or 0
  */
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int file_d, f_read, f_write;
-	char *buffer;
+	int f_desc;
+	ssize_t f_read, f_write;
+	char *buff;
 
-	if (filename == NULL)
+	if (!filename)
 		return (0);
 
-	buffer = malloc(sizeof(char) * letters);
-	if (buffer == NULL)
+	f_desc = open(filename, O_RDONLY);
+	if (f_desc == -1)
 		return (0);
 
-	file_d = open(filename, O_RDONLY, 600);
-	if (file_d == -1)
-	{
-		free(buffer);
+	buff = malloc(sizeof(char) * (letters));
+	if (!buff)
 		return (0);
-	}
-	f_read = read(file_d, buffer, letters);
-	if (f_read == -1)
-	{
-		free(buffer);
-		return (0);
-		buffer[letters] = '\0';
-	}
 
-	f_write = write(STDOUT_FILENO, buffer, f_read);
-	if (f_write == -1 || f_write != f_read)
-	{
-		return (0);
-	}
+	f_read = read(f_desc, buff, letters);
+	f_write = write(STOUT_FILENO, buff, f_read);
 
-	free(buffer);
-	close(file_d);
+	close(f_desc);
+
+	free(buff);
+
 	return (f_write);
 }

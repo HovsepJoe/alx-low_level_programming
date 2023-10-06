@@ -3,7 +3,7 @@
 
 /**
  * error_file - if files can be opened function
- * @file_from: cp file_from
+ * @file_frm: cp file_from
  * @file_to: cp file_to
  * @argv: argument
  *

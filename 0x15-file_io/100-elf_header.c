@@ -165,6 +165,7 @@ void print_magic(char *ptr)
 		printf(" %02x", ptr[byt]);
 
 	printf("\n");
+
 }
 
 /**
@@ -213,7 +214,7 @@ int check_elf(char *ptr)
 
 	if (addr == 127 && E == 'E' && L == 'L' && F == 'F')
 		return (1);
-`
+
 	return (0);
 }
 
